@@ -532,8 +532,21 @@ footer {
           </svg>
           <div class="link-card-title">Checkout do curso</div>
         </div>
-        <div class="link-card-subtitle">Compra direta (sem consultor) — Hotmart</div>
+        <div class="link-card-subtitle">Compra direta (Hotmart)</div>
         <span class="link-card-cta">Abrir checkout</span>
+      </a>
+      <a class="link-card" href="https://www.italomarsili.com.br/sv0526l/inscricao/v1" target="_blank" rel="noopener" aria-label="Inscrição da imersão O Sentido da Vida">
+        <div class="link-card-head">
+          <svg class="link-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <div class="link-card-title">Imersão O Sentido da Vida</div>
+        </div>
+        <div class="link-card-subtitle">23 de maio · 8h–12h · com Dr. Italo Marsili</div>
+        <span class="link-card-cta">Inscrever-se</span>
       </a>
     </div>
   </aside>
@@ -573,10 +586,10 @@ ESTÁGIO 4 ── envia áudio + pede feedback
          │
          ▼ (D+1 após feedback)
 ESTÁGIO 5 ── apresenta curso + bifurca:
-   ┌──────────────────────┐
-   │ 1) consultor          │
-   │ 2) compra direta       │
-   └──────────────────────┘
+   ┌──────────────────────────┐
+   │ 1) compra direta (curso) │
+   │ 2) imersão 23/05 (Italo) │
+   └──────────────────────────┘
 </code></pre>
 <hr />
 <h2 id="2-notas-operacionais">2. Notas operacionais</h2>
@@ -584,15 +597,15 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <ul>
 <li><code>{{nome}}</code> — primeiro nome do respondente (campo "Nome" da pesquisa, primeiro token)</li>
 <li><code>{{link_curso}}</code> — URL final de checkout do curso</li>
-<li><code>{{link_consultor}}</code> — URL ou número de WhatsApp do consultor</li>
+<li><code>{{link_imersao}}</code> — URL de inscrição da imersão "O Sentido da Vida" com Dr. Italo Marsili (23 de maio, 8h–12h)</li>
 <li><code>{{pdf_capitulo}}</code> — anexo do PDF do capítulo 1 do livro</li>
 <li><code>{{audio_capitulo}}</code> — anexo do áudio do Italo comentando o capítulo</li>
 </ul>
 <h3 id="valores-definidos">Valores definidos</h3>
 <ul>
-<li><code>{{link_curso}}</code> = <code>https://pay.hotmart.com/S105798181S?off=qw0dvfg9&amp;checkoutMode=10</code> (checkout Hotmart, compra direta sem consultor)</li>
+<li><code>{{link_curso}}</code> = <code>https://pay.hotmart.com/S105798181S?off=qw0dvfg9&amp;checkoutMode=10</code> (checkout Hotmart, compra direta)</li>
+<li><code>{{link_imersao}}</code> = <code>https://www.italomarsili.com.br/sv0526l/inscricao/v1</code> (inscrição da imersão "O Sentido da Vida", 23 de maio, 8h às 12h)</li>
 <li><code>{{pdf_capitulo}}</code> — <strong>a definir</strong> (o PDF do capítulo 1 não está hospedado publicamente; faça upload direto na mídia do WhatsApp Business e use o media ID, ou hospede em canal privado)</li>
-<li><code>{{link_consultor}}</code> — <strong>a definir</strong> (passar a URL ou número do consultor de vendas)</li>
 <li><code>{{audio_capitulo}}</code> — <strong>a definir</strong> (gravar o áudio do Italo comentando o capítulo)</li>
 </ul>
 <h3 id="timing-sugerido-entre-mensagens">Timing sugerido entre mensagens</h3>
@@ -696,8 +709,8 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>O livro é a base. Mas a partir do que eu descobri relendo o Frankl desde 2014, montei também um curso. Ele foi pensado pra quem quer mais do que ler — quer entender, na prática, como a Logoterapia funciona e onde ela ajuda.</p>
 <p>Para quem está começando do zero (como é o seu caso), o curso entrega os fundamentos: a antropologia da pessoa, a ontologia dimensional do Frankl, como o sentido se manifesta no dia a dia, e como aplicar isso na própria vida.</p>
 <p>São duas formas de seguir daqui:</p>
-<p>1 — Falar com um consultor da equipe (esclarece preço, parcelamento, conteúdo, e se faz sentido pro seu momento): {{link_consultor}}
-2 — Ir direto pra inscrição: {{link_curso}}</p>
+<p>1 — Garantir vaga direto no curso: {{link_curso}}
+2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Me responde com 1 ou 2.</p>
 </blockquote>
 <h3 id="follow-ups-cluster-1">Follow-ups Cluster 1</h3>
@@ -774,8 +787,8 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>O livro é a base teórica. Mas com o que descobri ao longo desses anos lendo Frankl, montei também um curso — exatamente para quem está no ponto que você está: já leu, já conhece os conceitos, mas falta a ponte para a prática.</p>
 <p>O curso entrega o itinerário que a literatura não dá: como a ontologia dimensional se traduz em decisão clínica, o que é sofrimento noético na consulta de verdade, e como você aplica isso em casos reais — independentemente da sua formação.</p>
 <p>Duas formas de seguir daqui:</p>
-<p>1 — Falar com um consultor da equipe (esclarece preço, parcelamento, conteúdo e se faz sentido pro seu momento): {{link_consultor}}
-2 — Ir direto pra inscrição: {{link_curso}}</p>
+<p>1 — Ir direto pra inscrição do curso: {{link_curso}}
+2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Me responde com 1 ou 2.</p>
 </blockquote>
 <h3 id="follow-ups-cluster-2">Follow-ups Cluster 2</h3>
@@ -856,8 +869,8 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>Por isso, em paralelo ao livro, eu montei um curso. O foco não é repetir o que o Frankl escreveu — isso você já tem nos livros. O foco é o que falta: critério clínico, condução, quando entrar com Logoterapia e quando não entrar, como sustentar o processo quando o paciente resiste ao sentido, e como integrar com o que você já usa.</p>
 <p>Trabalhe. Sirva. Seja forte. Não encha o saco. É a tradução prática que o Frankl deixou — e o curso é como destilar isso pra dentro da sua consulta.</p>
 <p>Duas formas de seguir:</p>
-<p>1 — Falar com um consultor da equipe (preço, parcelamento, ementa, encaixe pro seu momento): {{link_consultor}}
-2 — Ir direto pra inscrição: {{link_curso}}</p>
+<p>1 — Ir direto pra inscrição do curso: {{link_curso}}
+2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Responde com 1 ou 2.</p>
 </blockquote>
 <h3 id="follow-ups-cluster-3">Follow-ups Cluster 3</h3>
@@ -937,8 +950,8 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>O livro é o piso teórico. Mas o curso que está saindo junto é onde concentro o trabalho dos últimos anos — o que eu não consigo entregar em livro, e o que a sua pós provavelmente não entregou: o itinerário prático sistematizado, a clínica do sofrimento noético operacionalizada, e os pontos que reorganizam a ontologia dimensional na consulta de verdade.</p>
 <p>Trabalhe. Sirva. Seja forte. Não encha o saco. É o que o Frankl deixou em quatro verbos — e o curso é como destilar isso em conduta clínica reproduzível.</p>
 <p>Você é exatamente o público que eu quero ter na sala discutindo isso. Duas formas de seguir:</p>
-<p>1 — Falar com um consultor da equipe (condições, valores, conteúdo, formato): {{link_consultor}}
-2 — Ir direto pra inscrição: {{link_curso}}</p>
+<p>1 — Ir direto pra inscrição do curso: {{link_curso}}
+2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Me responde com 1 ou 2.</p>
 </blockquote>
 <h3 id="follow-ups-cluster-4">Follow-ups Cluster 4</h3>
@@ -1009,13 +1022,13 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <blockquote>
 <p>Esse detalhe a equipe envia direitinho. Mas antes prefiro te mandar o capítulo e o áudio — pra você ter material concreto pra decidir, e não comprar no escuro. Pode ser?</p>
 </blockquote>
-<h3 id="confirmacao-apos-1-falar-com-consultor">Confirmação após "1 — Falar com consultor"</h3>
-<blockquote>
-<p>Combinado. Já passo seu contato pra equipe. Eles te chamam em até 24h por aqui mesmo. Obrigado pela conversa, {{nome}}.</p>
-</blockquote>
-<h3 id="confirmacao-apos-2-comprar-direto">Confirmação após "2 — Comprar direto"</h3>
+<h3 id="confirmacao-apos-1-compra-direta-no-curso">Confirmação após "1 — Compra direta no curso"</h3>
 <blockquote>
 <p>Aqui está: {{link_curso}}. Se travar em qualquer etapa do checkout, me avisa que resolvo. E me manda um sinal quando concluir — quero saber que você entrou.</p>
+</blockquote>
+<h3 id="confirmacao-apos-2-inscricao-na-imersao">Confirmação após "2 — Inscrição na imersão"</h3>
+<blockquote>
+<p>Aqui está o link de inscrição: {{link_imersao}}. A imersão "O Sentido da Vida" é no dia 23 de maio, das 8h às 12h, comigo. Quando concluir a inscrição, me avisa por aqui — assim eu sei que você tá dentro.</p>
 </blockquote>
     <footer>
       Roteiros do funil de WhatsApp — versão 15/05/2026. Para alterações, atualizar o arquivo MD de origem e regerar este HTML.
