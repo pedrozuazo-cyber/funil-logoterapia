@@ -20,8 +20,9 @@
   --warning: #b9651b;
   --warning-bg: #fdf3e7;
   --cluster1: #4a7da6;
-  --cluster2: #c1632b;
-  --cluster3: #8b1d1d;
+  --cluster2: #b58a2a;
+  --cluster3: #c1632b;
+  --cluster4: #8b1d1d;
 }
 
 * { box-sizing: border-box; }
@@ -233,9 +234,10 @@ pre code {
 }
 
 /* Cluster color indicators (via h2 anchor) */
-#\33 -cluster-1-curiosos-e-estudantes { border-left: 4px solid var(--cluster1); padding-left: 18px; }
-#\34 -cluster-2-praticantes-sem-pos-graduacao { border-left: 4px solid var(--cluster2); padding-left: 18px; }
-#\35 -cluster-3-pos-graduados { border-left: 4px solid var(--cluster3); padding-left: 18px; }
+#\33 -cluster-1-curiosos-frios { border-left: 4px solid var(--cluster1); padding-left: 18px; }
+#\34 -cluster-2-leitores-e-estudantes { border-left: 4px solid var(--cluster2); padding-left: 18px; }
+#\35 -cluster-3-praticantes-sem-pos-graduacao { border-left: 4px solid var(--cluster3); padding-left: 18px; }
+#\36 -cluster-4-pos-graduados { border-left: 4px solid var(--cluster4); padding-left: 18px; }
 
 hr {
   border: none;
@@ -513,10 +515,11 @@ footer {
     <ul>
       <li><a href="#1-resumo-visual-do-fluxo">1. Resumo visual do fluxo</a></li>
 <li><a href="#2-notas-operacionais">2. Notas operacionais</a></li>
-<li><a href="#3-cluster-1-curiosos-e-estudantes">3. CLUSTER 1 — Curiosos e Estudantes</a></li>
-<li><a href="#4-cluster-2-praticantes-sem-pos-graduacao">4. CLUSTER 2 — Praticantes sem pós-graduação</a></li>
-<li><a href="#5-cluster-3-pos-graduados">5. CLUSTER 3 — Pós-graduados</a></li>
-<li><a href="#6-mensagens-utilitarias-compartilhadas">6. Mensagens utilitárias (compartilhadas)</a></li>
+<li><a href="#3-cluster-1-curiosos-frios">3. CLUSTER 1 — Curiosos / Frios</a></li>
+<li><a href="#4-cluster-2-leitores-e-estudantes">4. CLUSTER 2 — Leitores e Estudantes</a></li>
+<li><a href="#5-cluster-3-praticantes-sem-pos-graduacao">5. CLUSTER 3 — Praticantes sem pós-graduação</a></li>
+<li><a href="#6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</a></li>
+<li><a href="#7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</a></li>
     </ul>
     <div class="asset-section">
       <h2>Links do funil</h2>
@@ -552,7 +555,7 @@ footer {
       <div class="eyebrow">Funil de WhatsApp — Pesquisa do Dr. Italo Marsili</div>
       <h1>Roteiros das Mensagens do Funil de Logoterapia</h1>
       <p>Documento operacional dos roteiros a serem implementados via API do WhatsApp. Cada mensagem está separada em blocos verdes (estilo balão de WhatsApp) e pode ser copiada diretamente para a régua de automação.</p>
-      <div class="meta">Versão: 15/05/2026 · 3 clusters · 106 contatos qualificados</div>
+      <div class="meta">Versão: 15/05/2026 · 4 clusters · 106 contatos qualificados</div>
     </div>
     <h1 id="roteiros-do-funil-de-whatsapp-logoterapia">Roteiros do Funil de WhatsApp — Logoterapia</h1>
 <p>Funil de mensagens via API do WhatsApp para contatar os respondentes da pesquisa do Dr. Italo Marsili sobre Logoterapia.</p>
@@ -644,42 +647,43 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p><strong>Escalonamento:</strong>
 - 1ª resposta fora do menu → enviar re-prompt (uma vez).
 - 2ª resposta ainda fora do menu → enviar uma confirmação leve ("ok, vou seguir mesmo assim") e avançar pro Estágio 2 usando a variante de "fallback seguro" do cluster:
-  - <strong>Cluster 1 (Curiosos e Estudantes)</strong> → variante 1 ("Entender o que Frankl propôs") — entrada mais ampla e neutra.
-  - <strong>Cluster 2 (Praticantes)</strong> → variante 1 ("Falta de itinerário prático") — dor mais frequente declarada.
-  - <strong>Cluster 3 (Pós-graduados)</strong> → variante 2 ("Itinerário prático sistematizado") — dor transversal mesmo entre especialistas.
+  - <strong>Cluster 1 (Curiosos / Frios)</strong> → variante 1 ("Já ouvi falar do Viktor Frankl") — entrada mais neutra.
+  - <strong>Cluster 2 (Leitores e Estudantes)</strong> → variante 1 ("Ontologia dimensional e dimensão noética") — terreno mais técnico, atrai leitor sério.
+  - <strong>Cluster 3 (Praticantes)</strong> → variante 1 ("Falta de itinerário prático") — dor mais frequente declarada.
+  - <strong>Cluster 4 (Pós-graduados)</strong> → variante 2 ("Itinerário prático sistematizado") — dor transversal mesmo entre especialistas.
 - A operação pode opcionalmente marcar esse contato como "precisa de revisão humana" pra um operador olhar depois.</p>
 <hr />
-<h2 id="3-cluster-1-curiosos-e-estudantes">3. CLUSTER 1 — Curiosos e Estudantes</h2>
-<p><em>62 pessoas (58,5%). Marcaram A, B ou C (sem D, sem E). Mistura de leigos curiosos, leitores de Frankl e estudantes que conhecem os conceitos mas não atendem profissionalmente com Logoterapia.</em></p>
-<p><strong>Objetivo do estágio 1:</strong> descobrir o ângulo de entrada (teoria, prática ou comparação com outras abordagens), sem assumir nível de conhecimento prévio.</p>
+<h2 id="3-cluster-1-curiosos-frios">3. CLUSTER 1 — Curiosos / Frios</h2>
+<p><em>9 pessoas (8,5%). Marcaram apenas "Nunca ouvi falar / Sei muito pouco". Quase ninguém atende. Mistura de estudantes e leigos curiosos.</em></p>
+<p><strong>Objetivo do estágio 1:</strong> despertar interesse com uma pergunta acessível, sem jargão.</p>
 <h3 id="estagio-1-mensagem-inicial">Estágio 1 — Mensagem inicial</h3>
 <blockquote>
 <p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
 <p>Você preencheu aquela pesquisa que pedi nos stories sobre Logoterapia — obrigado por reservar um tempo.</p>
-<p>Estou desde 2014 mergulhado no Frankl e estou terminando um livro sobre o que descobri ao longo desses anos. Quero te mandar o sumário e a introdução em primeira mão.</p>
-<p>Antes, me ajuda a calibrar o que vou te enviar. Qual desses pontos mais te interessa hoje?</p>
-<p>1 — Entender o que Frankl propôs (a teoria, as ideias-base da Logoterapia)
-2 — Ver como a Logoterapia funciona na prática
-3 — Relacionar a Logoterapia com outras abordagens psicológicas</p>
+<p>Vi que você ainda conhece pouco do tema. Estou justamente terminando um livro sobre Logoterapia e quero te mandar o sumário e a introdução em primeira mão.</p>
+<p>Antes, me ajuda a entender uma coisa rapidinho. O que te fez clicar no formulário e preencher?</p>
+<p>1 — Já ouvi falar do Viktor Frankl e quero entender o que ele propôs
+2 — Estou passando por um momento de falta de sentido / "pra quê?"
+3 — Trabalho com gente e quero ferramentas pra ajudar</p>
 <p>Responde só com o número.</p>
 </blockquote>
 <h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
-<p><strong>Se respondeu 1 — "Entender o que Frankl propôs":</strong></p>
+<p><strong>Se respondeu 1 — "Já ouvi falar do Viktor Frankl e quero entender o que ele propôs":</strong></p>
 <blockquote>
 <p>Perfeito.</p>
-<p>Se o que você quer é entender o que o Frankl realmente propôs — não a versão diluída que circula por aí, mas a base original — você marcou exatamente o ponto certo. O sumário e a introdução do meu livro abrem justamente essa moldura: o que é a Logoterapia, qual a visão de pessoa humana que ela sustenta, e onde ela difere do que veio antes.</p>
-<p>Vou te mandar o PDF em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
+<p>Se o que você quer é entender melhor o que o Frankl propôs, então é exatamente o que vou te ajudar a fazer. Nas próximas mensagens vou te mandar o sumário e a introdução do meu livro "O Sentido da Vida Explicado" em PDF, em primeira mão — antes da editora começar a divulgar.</p>
+<p>Posso enviar?</p>
 </blockquote>
-<p><strong>Se respondeu 2 — "Ver como a Logoterapia funciona na prática":</strong></p>
+<p><strong>Se respondeu 2 — "Estou passando por um momento de falta de sentido / pra quê?":</strong></p>
 <blockquote>
-<p>Perfeito.</p>
-<p>Esse é o pedido que mais ouço de quem se interessa pela Logoterapia: como traduzir tudo aquilo no dia a dia, na conversa com gente, ou no consultório. O sumário e a introdução do meu livro não entram na clínica direto, mas dão o piso ontológico que separa a Logoterapia bem aplicada da Logoterapia improvisada — porque a prática só se sustenta quando a base está clara.</p>
-<p>Vou te mandar o PDF em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
+<p>Perfeito — e obrigado pela confiança em me dizer isso.</p>
+<p>Quando a pergunta "pra quê?" começa a aparecer com força, em geral ela está sinalizando algo importante. O Frankl chamou isso de vazio existencial, e a introdução do meu livro entra justamente nesse ponto: o que é, de onde vem e por que ele é mais comum hoje do que se imagina.</p>
+<p>Vou te mandar o sumário e a introdução em PDF, em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
 </blockquote>
-<p><strong>Se respondeu 3 — "Relacionar a Logoterapia com outras abordagens":</strong></p>
+<p><strong>Se respondeu 3 — "Trabalho com gente e quero ferramentas pra ajudar":</strong></p>
 <blockquote>
 <p>Perfeito.</p>
-<p>Essa é uma das discussões mais importantes hoje e uma das que menos se faz bem feito. Onde a Logoterapia se sobrepõe a outras abordagens, onde ela difere, e onde ela não cabe — são pontos que eu trato no meu livro, e o sumário e a introdução já abrem essa moldura.</p>
+<p>Pra quem trabalha com gente, a Logoterapia entrega algo que poucas abordagens dão: um critério firme pra entender o que sustenta uma pessoa em pé quando o resto desaba. O sumário e a introdução do meu livro abrem exatamente esse terreno.</p>
 <p>Vou te mandar o PDF em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
 </blockquote>
 <h3 id="estagio-3-envio-do-pdf-oferta-do-audio">Estágio 3 — Envio do PDF + oferta do áudio</h3>
@@ -694,17 +698,18 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 </blockquote>
 <h3 id="estagio-5-curso-ctas">Estágio 5 — Curso + CTAs</h3>
 <blockquote>
-<p>{{nome}}, deixa eu fechar a conversa com uma coisa.</p>
-<p>O livro é a base teórica. Mas com o que descobri ao longo desses anos lendo Frankl, montei também um curso. Ele entrega o que falta no caminho típico de quem se aproxima da Logoterapia: a ponte entre os conceitos (que você pode encontrar nos livros) e a aplicação real — tanto na própria vida quanto no trabalho com gente.</p>
-<p>Duas formas de seguir daqui:</p>
-<p>1 — Ir direto pra inscrição do curso: {{link_curso}}
+<p>{{nome}}, abro uma última conversa contigo.</p>
+<p>O livro é a base. Mas a partir do que eu descobri relendo o Frankl desde 2014, montei também um curso. Ele foi pensado pra quem quer mais do que ler — quer entender, na prática, como a Logoterapia funciona e onde ela ajuda.</p>
+<p>Para quem está começando do zero (como é o seu caso), o curso entrega os fundamentos: a antropologia da pessoa, a ontologia dimensional do Frankl, como o sentido se manifesta no dia a dia, e como aplicar isso na própria vida.</p>
+<p>São duas formas de seguir daqui:</p>
+<p>1 — Garantir vaga direto no curso: {{link_curso}}
 2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Me responde com 1 ou 2.</p>
 </blockquote>
 <h3 id="follow-ups-cluster-1">Follow-ups Cluster 1</h3>
 <p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
 <blockquote>
-<p>{{nome}}, só pra garantir que minha mensagem anterior chegou. Era só pra eu entender qual ângulo te interessa mais antes de te mandar o sumário e a introdução do livro. Pode responder o número da opção que combina mais.</p>
+<p>{{nome}}, só pra garantir que minha mensagem anterior chegou. Era só pra eu entender o que te atraiu pra pesquisa antes de te mandar o sumário e a introdução do livro. Pode responder o número da opção que combina mais.</p>
 </blockquote>
 <p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
 <blockquote>
@@ -719,10 +724,77 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>{{nome}}, te mandei um áudio ontem. Se você ouviu, vale me contar o que ficou. Se não rolou, sem problema.</p>
 </blockquote>
 <hr />
-<h2 id="4-cluster-2-praticantes-sem-pos-graduacao">4. CLUSTER 2 — Praticantes sem pós-graduação</h2>
+<h2 id="4-cluster-2-leitores-e-estudantes">4. CLUSTER 2 — Leitores e Estudantes</h2>
+<p><em>53 pessoas (50%). Marcaram B e/ou C — já leram Frankl ou fizeram curso básico, mas não aplicam profissionalmente. Maior cluster.</em></p>
+<p><strong>Objetivo do estágio 1:</strong> posicionar o Italo como leitor sério de Frankl ("desde 2014"), fisgar com a possibilidade de ver coisa nova/ajustada.</p>
+<h3 id="estagio-1-mensagem-inicial_1">Estágio 1 — Mensagem inicial</h3>
+<blockquote>
+<p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
+<p>Você preencheu a pesquisa sobre Logoterapia que pedi nos stories — obrigado por participar.</p>
+<p>Pelo que você marcou, já leu Frankl ou conhece os conceitos principais. Estou desde 2014 mergulhado nele, ajustando algumas coisas do que ele escreveu, e quero te mandar nas próximas mensagens um material em primeira mão.</p>
+<p>Antes, me ajuda a calibrar o que vou te enviar. Qual desses pontos te interessa mais hoje?</p>
+<p>1 — Entender melhor a ontologia dimensional e a dimensão noética
+2 — Ver como a Logoterapia se traduz na prática clínica
+3 — Entender o lugar dela diante de TCC, psicanálise e outras abordagens</p>
+<p>Responde só com o número.</p>
+</blockquote>
+<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_1">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
+<p><strong>Se respondeu 1 — "Entender melhor a ontologia dimensional e a dimensão noética":</strong></p>
+<blockquote>
+<p>Perfeito.</p>
+<p>Se é a ontologia dimensional e a dimensão noética que te interessam, você marcou justamente o terreno onde mais venho trabalhando esses últimos anos. O sumário e a introdução do meu livro já fixam a base ontológica de tudo que vem depois — é onde sustento por que a leitura do Frankl precisa começar por aí, antes de qualquer conversa sobre técnica.</p>
+<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
+</blockquote>
+<p><strong>Se respondeu 2 — "Ver como a Logoterapia se traduz na prática clínica":</strong></p>
+<blockquote>
+<p>Perfeito.</p>
+<p>Esse é o pedido que mais ouço de quem já leu Frankl: como traduzir tudo aquilo dentro da sessão. O sumário e a introdução do meu livro não entram na clínica direto, mas dão o piso ontológico que separa a Logoterapia bem aplicada da Logoterapia improvisada — porque a prática só se sustenta quando a antropologia está clara.</p>
+<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
+</blockquote>
+<p><strong>Se respondeu 3 — "Entender o lugar dela diante de TCC, psicanálise e outras abordagens":</strong></p>
+<blockquote>
+<p>Perfeito.</p>
+<p>Essa é uma das discussões mais importantes hoje, e uma das que menos se faz bem feito. Onde a Logoterapia se sobrepõe à TCC, onde difere da psicanálise, e onde ela não cabe — são pontos que eu trato no meu livro, e o sumário e a introdução já abrem essa moldura.</p>
+<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
+</blockquote>
+<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_1">Estágio 3 — Envio do PDF + oferta do áudio</h3>
+<blockquote>
+<p>Aí está o material. {{pdf_amostra}}</p>
+<p>Quando terminar, me avisa — gravei um áudio comentando esse material, com pontos que tirei do recorte final do livro porque preferi trazer pessoalmente. Te mando depois.</p>
+</blockquote>
+<h3 id="estagio-4-envio-do-audio-feedback_1">Estágio 4 — Envio do áudio + feedback</h3>
+<blockquote>
+<p>{{audio_capitulo}}</p>
+<p>Ouve quando der. Depois me conta: qual ponto fez mais sentido, ou se algo ficou em aberto. Leio cada resposta.</p>
+</blockquote>
+<h3 id="estagio-5-curso-ctas_1">Estágio 5 — Curso + CTAs</h3>
+<blockquote>
+<p>{{nome}}, deixa eu fechar a conversa com uma coisa.</p>
+<p>O livro é a base teórica. Mas com o que descobri ao longo desses anos lendo Frankl, montei também um curso — exatamente para quem está no ponto que você está: já leu, já conhece os conceitos, mas falta a ponte para a prática.</p>
+<p>O curso entrega o itinerário que a literatura não dá: como a ontologia dimensional se traduz em decisão clínica, o que é sofrimento noético na consulta de verdade, e como você aplica isso em casos reais — independentemente da sua formação.</p>
+<p>Duas formas de seguir daqui:</p>
+<p>1 — Ir direto pra inscrição do curso: {{link_curso}}
+2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
+<p>Me responde com 1 ou 2.</p>
+</blockquote>
+<h3 id="follow-ups-cluster-2">Follow-ups Cluster 2</h3>
+<p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
+<blockquote>
+<p>{{nome}}, esqueci de te perguntar de novo: qual desses pontos te interessa mais? É só responder o número, e a partir daí eu te mando o sumário e a introdução do livro.</p>
+</blockquote>
+<p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
+<blockquote>
+<p>{{nome}}, última. Se você ainda quer o material, responde qualquer coisa. Se não, sem problema, paro por aqui.</p>
+</blockquote>
+<p><strong>Após Estágio 4 sem resposta (D+1):</strong></p>
+<blockquote>
+<p>Te mandei o áudio ontem. Se ouviu, vale me contar o que ficou. Tenho uma última coisa pra te mostrar.</p>
+</blockquote>
+<hr />
+<h2 id="5-cluster-3-praticantes-sem-pos-graduacao">5. CLUSTER 3 — Praticantes sem pós-graduação</h2>
 <p><em>19 pessoas (17,9%). Marcaram D (usam ou tentam usar Logoterapia), sem E. Cluster de maior potencial de conversão — dor clínica declarada.</em></p>
 <p><strong>Objetivo do estágio 1:</strong> validar a dor (insegurança clínica) e oferecer caminho para o itinerário prático.</p>
-<h3 id="estagio-1-mensagem-inicial_1">Estágio 1 — Mensagem inicial</h3>
+<h3 id="estagio-1-mensagem-inicial_2">Estágio 1 — Mensagem inicial</h3>
 <blockquote>
 <p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
 <p>Você preencheu a pesquisa sobre Logoterapia que pedi nos stories — obrigado.</p>
@@ -733,7 +805,7 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 3 — Integrar a Logoterapia com outras abordagens (TCC, psicanálise, etc.)</p>
 <p>Responde só com o número.</p>
 </blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_1">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
+<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_2">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
 <p><strong>Se respondeu 1 — "Falta de itinerário prático":</strong></p>
 <blockquote>
 <p>Anotado.</p>
@@ -752,17 +824,17 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>Integrar bem exige saber exatamente onde a Logoterapia começa e onde ela termina — caso contrário, vira mistura. O meu livro trata essa fronteira em vários momentos, e o sumário e a introdução já fixam o lugar dela no quadro maior.</p>
 <p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
 </blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_1">Estágio 3 — Envio do PDF + oferta do áudio</h3>
+<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_2">Estágio 3 — Envio do PDF + oferta do áudio</h3>
 <blockquote>
 <p>Aí está. {{pdf_amostra}}</p>
 <p>Quando ler, me avisa. Gravei um áudio comentando esse material com o olho na clínica — coisa que não cabia no livro mas que importa pra quem atende. Mando assim que você terminar.</p>
 </blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback_1">Estágio 4 — Envio do áudio + feedback</h3>
+<h3 id="estagio-4-envio-do-audio-feedback_2">Estágio 4 — Envio do áudio + feedback</h3>
 <blockquote>
 <p>{{audio_capitulo}}</p>
 <p>Ouve quando der. Depois me conta o que achou — qual ponto bateu com a sua prática e qual ainda ficou nebuloso. Leio todas as respostas.</p>
 </blockquote>
-<h3 id="estagio-5-curso-ctas_1">Estágio 5 — Curso + CTAs</h3>
+<h3 id="estagio-5-curso-ctas_2">Estágio 5 — Curso + CTAs</h3>
 <blockquote>
 <p>{{nome}}, antes de eu te liberar, deixa eu te contar o que tem por trás disso tudo.</p>
 <p>Quando você marcou "tento usar Logoterapia na prática", você falou exatamente o que ouço da maioria dos psicólogos honestos: a teoria é bonita, mas na hora da sessão falta itinerário.</p>
@@ -773,7 +845,7 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Responde com 1 ou 2.</p>
 </blockquote>
-<h3 id="follow-ups-cluster-2">Follow-ups Cluster 2</h3>
+<h3 id="follow-ups-cluster-3">Follow-ups Cluster 3</h3>
 <p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
 <blockquote>
 <p>{{nome}}, vou simplificar. Em uma palavra ou frase: qual é hoje a sua maior dificuldade aplicando Logoterapia? A partir disso te mando o que separei.</p>
@@ -787,10 +859,10 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>Te mandei o áudio ontem. Tenho uma última coisa que separei pra terapeutas que estão exatamente no seu ponto — me avisa se posso mandar.</p>
 </blockquote>
 <hr />
-<h2 id="5-cluster-3-pos-graduados">5. CLUSTER 3 — Pós-graduados</h2>
+<h2 id="6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</h2>
 <p><em>25 pessoas (23,6%). Marcaram E. Especialistas formais. Falar de par para par, sem condescender, com promessa de novidade real.</em></p>
 <p><strong>Objetivo do estágio 1:</strong> posicionar como debate entre pares. Sinalizar "achados" próprios. Atrair pelo rigor.</p>
-<h3 id="estagio-1-mensagem-inicial_2">Estágio 1 — Mensagem inicial</h3>
+<h3 id="estagio-1-mensagem-inicial_3">Estágio 1 — Mensagem inicial</h3>
 <blockquote>
 <p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
 <p>Você preencheu a pesquisa que pedi nos stories — obrigado por entrar nesse debate.</p>
@@ -801,7 +873,7 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 3 — Diálogo da Logoterapia com outras tradições (psicanálise, TCC, fenomenologia)</p>
 <p>Me responde só com o número.</p>
 </blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_2">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
+<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_3">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
 <p><strong>Se respondeu 1 — "Refinamentos da ontologia dimensional e do sofrimento noético":</strong></p>
 <blockquote>
 <p>Anotado.</p>
@@ -820,17 +892,17 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>Esse diálogo é o que mais falta no debate brasileiro sobre Logoterapia — e é justamente o que mais me atrai. O meu livro tem páginas dedicadas ao confronto com psicanálise, TCC e fenomenologia, com posições que sei que vão te interessar. O sumário e a introdução já abrem o lugar epistemológico onde esse confronto faz sentido.</p>
 <p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
 </blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_2">Estágio 3 — Envio do PDF + oferta do áudio</h3>
+<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_3">Estágio 3 — Envio do PDF + oferta do áudio</h3>
 <blockquote>
 <p>Aí está. {{pdf_amostra}}</p>
 <p>Lê com calma — vai abrir margem de discussão. Quando terminar, me avisa: gravei um áudio comentando esse material, inclusive com pontos que tirei do recorte final porque preferi guardar pra esta conversa direta. Te mando depois.</p>
 </blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback_2">Estágio 4 — Envio do áudio + feedback</h3>
+<h3 id="estagio-4-envio-do-audio-feedback_3">Estágio 4 — Envio do áudio + feedback</h3>
 <blockquote>
 <p>{{audio_capitulo}}</p>
 <p>Ouve quando puder. Depois me responde — quero saber o que faz sentido, o que destoa do que você estudou, e onde você acha que eu ainda preciso afinar. Esse retorno me importa.</p>
 </blockquote>
-<h3 id="estagio-5-curso-ctas_2">Estágio 5 — Curso + CTAs</h3>
+<h3 id="estagio-5-curso-ctas_3">Estágio 5 — Curso + CTAs</h3>
 <blockquote>
 <p>{{nome}}, deixa eu te fazer uma última proposta.</p>
 <p>O livro é o piso teórico. Mas o curso que está saindo junto é onde concentro o trabalho dos últimos anos — o que eu não consigo entregar em livro, e o que a sua pós provavelmente não entregou: o itinerário prático sistematizado, a clínica do sofrimento noético operacionalizada, e os pontos que reorganizam a ontologia dimensional na consulta de verdade.</p>
@@ -840,7 +912,7 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 2 — Participar primeiro da imersão "O Sentido da Vida" comigo, no dia 23 de maio, das 8h às 12h, antes de decidir: {{link_imersao}}</p>
 <p>Me responde com 1 ou 2.</p>
 </blockquote>
-<h3 id="follow-ups-cluster-3">Follow-ups Cluster 3</h3>
+<h3 id="follow-ups-cluster-4">Follow-ups Cluster 4</h3>
 <p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
 <blockquote>
 <p>{{nome}}, não esqueci de você. Era só responder o número da opção pra eu te mandar o sumário e a introdução do livro. Se algum dos temas não te servir, responde "outro" e me diga qual.</p>
@@ -854,29 +926,36 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <p>{{nome}}, te mandei o áudio ontem. Mesmo se você discordar dele inteiro, vale me dizer. Tenho uma última coisa específica pros logoterapeutas pra te apresentar.</p>
 </blockquote>
 <hr />
-<h2 id="6-mensagens-utilitarias-compartilhadas">6. Mensagens utilitárias (compartilhadas)</h2>
+<h2 id="7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</h2>
 <h3 id="quando-a-pessoa-pede-para-parar">Quando a pessoa pede para parar</h3>
 <blockquote>
 <p>Entendido. Removo você daqui. Se quiser voltar depois, é só me chamar.</p>
 </blockquote>
 <h3 id="re-prompt-quando-a-resposta-do-estagio-1-vier-fora-do-menu">Re-prompt quando a resposta do Estágio 1 vier fora do menu</h3>
 <p>Disparar quando a 1ª resposta do contato não bater com nenhum dos números do menu daquele cluster.</p>
-<p><strong>Re-prompt Cluster 1 (Curiosos e Estudantes):</strong></p>
+<p><strong>Re-prompt Cluster 1 (Curiosos / Frios):</strong></p>
 <blockquote>
 <p>{{nome}}, talvez minha mensagem anterior não tenha ficado clara — peço desculpa. Pra eu te mandar o material certo, preciso que você responda só com o número da opção que combina mais:</p>
-<p>1 — Entender o que Frankl propôs (a teoria, as ideias-base)
-2 — Ver como a Logoterapia funciona na prática
-3 — Relacionar com outras abordagens psicológicas</p>
+<p>1 — Já ouvi falar do Viktor Frankl e quero entender o que ele propôs
+2 — Estou passando por um momento de falta de sentido / "pra quê?"
+3 — Trabalho com gente e quero ferramentas pra ajudar</p>
 <p>É só o número.</p>
 </blockquote>
-<p><strong>Re-prompt Cluster 2 (Praticantes):</strong></p>
+<p><strong>Re-prompt Cluster 2 (Leitores e Estudantes):</strong></p>
+<blockquote>
+<p>{{nome}}, deixa eu refazer a pergunta pra eu não te mandar o material errado. Qual desses pontos te interessa mais hoje? Responde só com o número:</p>
+<p>1 — Entender melhor a ontologia dimensional e a dimensão noética
+2 — Ver como a Logoterapia se traduz na prática clínica
+3 — Entender o lugar dela diante de TCC, psicanálise e outras abordagens</p>
+</blockquote>
+<p><strong>Re-prompt Cluster 3 (Praticantes):</strong></p>
 <blockquote>
 <p>{{nome}}, deixa eu refazer a pergunta pra eu não te mandar o material errado. Na sua prática, a maior trava hoje é qual? Responde só com o número:</p>
 <p>1 — Falta de itinerário prático (ferramentas, técnicas, momento certo)
 2 — Insegurança quando o sofrimento não é puramente noético
 3 — Integrar a Logoterapia com outras abordagens</p>
 </blockquote>
-<p><strong>Re-prompt Cluster 3 (Pós-graduados):</strong></p>
+<p><strong>Re-prompt Cluster 4 (Pós-graduados):</strong></p>
 <blockquote>
 <p>{{nome}}, deixa eu refazer a pergunta pra eu te mandar a coisa certa. Qual desses temas te interessa mais hoje? Responde só com o número:</p>
 <p>1 — Refinamentos da ontologia dimensional e do sofrimento noético
