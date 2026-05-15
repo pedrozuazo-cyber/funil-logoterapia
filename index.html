@@ -522,13 +522,7 @@ footer {
 <li><a href="#7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</a></li>
     </ul>
     <div class="asset-section">
-      <h2>Material do funil</h2>
-      <button class="asset-card" onclick="openPdf()" type="button" aria-label="Abrir capítulo 1 do livro">
-        <span class="asset-card-thumb"></span>
-        <div class="asset-card-title">Capítulo 1</div>
-        <div class="asset-card-subtitle">O Sentido da Vida Explicado</div>
-        <span class="asset-card-cta">Abrir PDF</span>
-      </button>
+      <h2>Links do funil</h2>
       <a class="link-card" href="https://pay.hotmart.com/S105798181S?off=qw0dvfg9&checkoutMode=10" target="_blank" rel="noopener" aria-label="Abrir checkout direto do curso">
         <div class="link-card-head">
           <svg class="link-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -597,7 +591,7 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <h3 id="valores-definidos">Valores definidos</h3>
 <ul>
 <li><code>{{link_curso}}</code> = <code>https://pay.hotmart.com/S105798181S?off=qw0dvfg9&amp;checkoutMode=10</code> (checkout Hotmart, compra direta sem consultor)</li>
-<li><code>{{pdf_capitulo}}</code> = arquivo <code>cap1.pdf</code> disponível em <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/cap1.pdf</code> (ou faça upload do PDF para a mídia do WhatsApp Business e use o media ID)</li>
+<li><code>{{pdf_capitulo}}</code> — <strong>a definir</strong> (o PDF do capítulo 1 não está hospedado publicamente; faça upload direto na mídia do WhatsApp Business e use o media ID, ou hospede em canal privado)</li>
 <li><code>{{link_consultor}}</code> — <strong>a definir</strong> (passar a URL ou número do consultor de vendas)</li>
 <li><code>{{audio_capitulo}}</code> — <strong>a definir</strong> (gravar o áudio do Italo comentando o capítulo)</li>
 </ul>
@@ -1029,44 +1023,5 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
   </main>
 </div>
 
-<!-- Modal do PDF -->
-<div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Capítulo 1 — O Sentido da Vida Explicado">
-  <div class="pdf-modal-content">
-    <div class="pdf-modal-header">
-      <div class="pdf-modal-title">Capítulo 1 — O Sentido da Vida Explicado</div>
-      <div class="pdf-modal-actions">
-        <a class="pdf-modal-btn" href="cap1.pdf" download="cap1-sentido-vida-explicado.pdf">Baixar</a>
-        <a class="pdf-modal-btn" href="cap1.pdf" target="_blank" rel="noopener">Abrir em nova aba</a>
-        <button class="pdf-modal-btn close" onclick="closePdf()" type="button" aria-label="Fechar">×</button>
-      </div>
-    </div>
-    <iframe id="pdfFrame" src="" title="Visualizador do PDF"></iframe>
-  </div>
-</div>
-
-<script>
-  function openPdf() {
-    var modal = document.getElementById('pdfModal');
-    var frame = document.getElementById('pdfFrame');
-    frame.src = 'cap1.pdf';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closePdf() {
-    var modal = document.getElementById('pdfModal');
-    var frame = document.getElementById('pdfFrame');
-    modal.classList.remove('open');
-    frame.src = '';
-    document.body.style.overflow = '';
-  }
-  // Fechar clicando fora do conteudo
-  document.getElementById('pdfModal').addEventListener('click', function(e) {
-    if (e.target === this) closePdf();
-  });
-  // Fechar com ESC
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePdf();
-  });
-</script>
 </body>
 </html>
