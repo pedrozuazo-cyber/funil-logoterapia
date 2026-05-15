@@ -306,10 +306,171 @@ footer {
   display: block;
   width: 100%;
   aspect-ratio: 575 / 893;
-  background: #f5f3ee url("cap1-thumb.png") center/cover no-repeat;
+  background: #f5f3ee url("trecho-thumb.png") center/cover no-repeat;
   border-radius: 6px;
   margin-bottom: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Audio card variant (dark, with play icon centered) */
+.audio-card {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: #1f3a3d;
+  border: 1px solid #1f3a3d;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: #ffffff;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.audio-card:hover { opacity: 0.92; }
+.audio-card:active { transform: translateY(1px); }
+
+.audio-card-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #2d4f53 0%, #3a6065 100%);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.audio-card-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f3a3d;
+}
+
+.audio-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.audio-card-subtitle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.audio-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.audio-card-cta::after {
+  content: "▶";
+  font-size: 10px;
+}
+
+/* Audio modal */
+.audio-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.audio-modal.open { display: flex; }
+
+.audio-modal-content {
+  background: var(--surface);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+
+.audio-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.audio-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.audio-modal-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.audio-modal-close:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.audio-modal audio {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.audio-modal-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.audio-modal-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.audio-modal-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.audio-modal-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
 }
 
 .asset-card-title {
@@ -521,6 +682,28 @@ footer {
 <li><a href="#6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</a></li>
 <li><a href="#7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</a></li>
     </ul>
+    <div class="asset-section">
+      <h2>Material do funil</h2>
+      <button class="asset-card" onclick="openPdf()" type="button" aria-label="Abrir trecho inicial do livro">
+        <span class="asset-card-thumb"></span>
+        <div class="asset-card-title">Trecho inicial do livro</div>
+        <div class="asset-card-subtitle">O Sentido da Vida Explicado</div>
+        <span class="asset-card-cta">Abrir PDF</span>
+      </button>
+      <button class="audio-card" onclick="openAudio()" type="button" aria-label="Abrir áudio do Italo">
+        <div class="audio-card-cover">
+          <div class="audio-card-play">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="audio-card-title">Áudio do Italo</div>
+        <div class="audio-card-subtitle">Comentário sobre o trecho inicial</div>
+        <span class="audio-card-cta">Ouvir</span>
+      </button>
+    </div>
+
     <div class="asset-section">
       <h2>Links do funil</h2>
       <a class="link-card" href="https://pay.hotmart.com/S105798181S?off=qw0dvfg9&checkoutMode=10" target="_blank" rel="noopener" aria-label="Abrir checkout direto do curso">
@@ -986,5 +1169,78 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
   </main>
 </div>
 
+<!-- Modal do PDF -->
+<div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Trecho inicial do livro">
+  <div class="pdf-modal-content">
+    <div class="pdf-modal-header">
+      <div class="pdf-modal-title">Trecho inicial — O Sentido da Vida Explicado</div>
+      <div class="pdf-modal-actions">
+        <a class="pdf-modal-btn" href="trecho-inicial.pdf" download="trecho-inicial.pdf">Baixar</a>
+        <a class="pdf-modal-btn" href="trecho-inicial.pdf" target="_blank" rel="noopener">Abrir em nova aba</a>
+        <button class="pdf-modal-btn close" onclick="closePdf()" type="button" aria-label="Fechar">×</button>
+      </div>
+    </div>
+    <iframe id="pdfFrame" src="" title="Visualizador do PDF"></iframe>
+  </div>
+</div>
+
+<!-- Modal do Audio -->
+<div class="audio-modal" id="audioModal" role="dialog" aria-modal="true" aria-label="Áudio do Italo">
+  <div class="audio-modal-content">
+    <div class="audio-modal-header">
+      <div class="audio-modal-title">Áudio do Italo</div>
+      <button class="audio-modal-close" onclick="closeAudio()" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div class="audio-modal-meta">Comentário do Dr. Italo Marsili sobre o trecho inicial enviado no funil.</div>
+    <audio id="audioPlayer" controls preload="metadata">
+      <source src="audio-italo.m4a" type="audio/mp4">
+      Seu navegador não suporta reprodução de áudio. <a href="audio-italo.m4a">Baixe o arquivo aqui</a>.
+    </audio>
+    <div class="audio-modal-actions">
+      <a class="audio-modal-btn" href="audio-italo.m4a" download="audio-italo.m4a">Baixar</a>
+      <a class="audio-modal-btn" href="audio-italo.m4a" target="_blank" rel="noopener">Abrir em nova aba</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPdf() {
+    var modal = document.getElementById('pdfModal');
+    var frame = document.getElementById('pdfFrame');
+    frame.src = 'trecho-inicial.pdf';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePdf() {
+    var modal = document.getElementById('pdfModal');
+    var frame = document.getElementById('pdfFrame');
+    modal.classList.remove('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+  function openAudio() {
+    var modal = document.getElementById('audioModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAudio() {
+    var modal = document.getElementById('audioModal');
+    var player = document.getElementById('audioPlayer');
+    player.pause();
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Fechar clicando fora do conteudo
+  document.getElementById('pdfModal').addEventListener('click', function(e) {
+    if (e.target === this) closePdf();
+  });
+  document.getElementById('audioModal').addEventListener('click', function(e) {
+    if (e.target === this) closeAudio();
+  });
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closePdf(); closeAudio(); }
+  });
+</script>
 </body>
 </html>
