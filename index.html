@@ -273,6 +273,157 @@ footer {
   h2 { page-break-before: auto; }
 }
 
+/* Asset card (PDF) */
+.asset-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.asset-card {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  font-family: inherit;
+}
+
+.asset-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(31, 58, 61, 0.1);
+}
+
+.asset-card:active {
+  transform: translateY(1px);
+}
+
+.asset-card-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 575 / 893;
+  background: #f5f3ee url("cap1-thumb.png") center/cover no-repeat;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.asset-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.asset-card-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.asset-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.asset-card-cta::after {
+  content: "→";
+  font-size: 13px;
+}
+
+/* PDF modal */
+.pdf-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.pdf-modal.open {
+  display: flex;
+}
+
+.pdf-modal-content {
+  background: var(--surface);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+}
+
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.pdf-modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.pdf-modal-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pdf-modal-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.pdf-modal-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.pdf-modal-btn.close {
+  font-size: 18px;
+  padding: 4px 10px;
+  line-height: 1;
+}
+
+.pdf-modal iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #525659;
+}
+
 /* Mobile */
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
@@ -284,6 +435,8 @@ footer {
   }
   .content { padding: 24px; }
   .cover h1 { font-size: 24px; }
+  .pdf-modal { padding: 0; }
+  .pdf-modal-content { max-height: 100vh; height: 100vh; border-radius: 0; }
 }
 </style>
 </head>
@@ -300,6 +453,15 @@ footer {
 <li><a href="#6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</a></li>
 <li><a href="#7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</a></li>
     </ul>
+    <div class="asset-section">
+      <h2>Material do funil</h2>
+      <button class="asset-card" onclick="openPdf()" type="button" aria-label="Abrir capítulo 1 do livro">
+        <span class="asset-card-thumb"></span>
+        <div class="asset-card-title">Capítulo 1</div>
+        <div class="asset-card-subtitle">O Sentido da Vida Explicado</div>
+        <span class="asset-card-cta">Abrir PDF</span>
+      </button>
+    </div>
   </aside>
   <main class="content">
     <div class="cover">
@@ -779,5 +941,45 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
     </footer>
   </main>
 </div>
+
+<!-- Modal do PDF -->
+<div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Capítulo 1 — O Sentido da Vida Explicado">
+  <div class="pdf-modal-content">
+    <div class="pdf-modal-header">
+      <div class="pdf-modal-title">Capítulo 1 — O Sentido da Vida Explicado</div>
+      <div class="pdf-modal-actions">
+        <a class="pdf-modal-btn" href="cap1.pdf" download="cap1-sentido-vida-explicado.pdf">Baixar</a>
+        <a class="pdf-modal-btn" href="cap1.pdf" target="_blank" rel="noopener">Abrir em nova aba</a>
+        <button class="pdf-modal-btn close" onclick="closePdf()" type="button" aria-label="Fechar">×</button>
+      </div>
+    </div>
+    <iframe id="pdfFrame" src="" title="Visualizador do PDF"></iframe>
+  </div>
+</div>
+
+<script>
+  function openPdf() {
+    var modal = document.getElementById('pdfModal');
+    var frame = document.getElementById('pdfFrame');
+    frame.src = 'cap1.pdf';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePdf() {
+    var modal = document.getElementById('pdfModal');
+    var frame = document.getElementById('pdfFrame');
+    modal.classList.remove('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+  // Fechar clicando fora do conteudo
+  document.getElementById('pdfModal').addEventListener('click', function(e) {
+    if (e.target === this) closePdf();
+  });
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePdf();
+  });
+</script>
 </body>
 </html>
