@@ -343,6 +343,74 @@ footer {
   font-size: 13px;
 }
 
+/* Link card (compact, no thumbnail) */
+.link-card {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  font-family: inherit;
+  color: #ffffff;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.link-card:hover {
+  opacity: 0.92;
+}
+
+.link-card:active {
+  transform: translateY(1px);
+}
+
+.link-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.link-card-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.link-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.link-card-subtitle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.link-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.link-card-cta::after {
+  content: "↗";
+  font-size: 13px;
+}
+
 /* PDF modal */
 .pdf-modal {
   display: none;
@@ -461,6 +529,18 @@ footer {
         <div class="asset-card-subtitle">O Sentido da Vida Explicado</div>
         <span class="asset-card-cta">Abrir PDF</span>
       </button>
+      <a class="link-card" href="https://pay.hotmart.com/S105798181S?off=qw0dvfg9&checkoutMode=10" target="_blank" rel="noopener" aria-label="Abrir checkout direto do curso">
+        <div class="link-card-head">
+          <svg class="link-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <div class="link-card-title">Checkout do curso</div>
+        </div>
+        <div class="link-card-subtitle">Compra direta (sem consultor) — Hotmart</div>
+        <span class="link-card-cta">Abrir checkout</span>
+      </a>
     </div>
   </aside>
   <main class="content">
@@ -513,6 +593,13 @@ ESTÁGIO 5 ── apresenta curso + bifurca:
 <li><code>{{link_consultor}}</code> — URL ou número de WhatsApp do consultor</li>
 <li><code>{{pdf_capitulo}}</code> — anexo do PDF do capítulo 1 do livro</li>
 <li><code>{{audio_capitulo}}</code> — anexo do áudio do Italo comentando o capítulo</li>
+</ul>
+<h3 id="valores-definidos">Valores definidos</h3>
+<ul>
+<li><code>{{link_curso}}</code> = <code>https://pay.hotmart.com/S105798181S?off=qw0dvfg9&amp;checkoutMode=10</code> (checkout Hotmart, compra direta sem consultor)</li>
+<li><code>{{pdf_capitulo}}</code> = arquivo <code>cap1.pdf</code> disponível em <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/cap1.pdf</code> (ou faça upload do PDF para a mídia do WhatsApp Business e use o media ID)</li>
+<li><code>{{link_consultor}}</code> — <strong>a definir</strong> (passar a URL ou número do consultor de vendas)</li>
+<li><code>{{audio_capitulo}}</code> — <strong>a definir</strong> (gravar o áudio do Italo comentando o capítulo)</li>
 </ul>
 <h3 id="timing-sugerido-entre-mensagens">Timing sugerido entre mensagens</h3>
 <ul>
