@@ -19,10 +19,6 @@
   --code-bg: #f5f3ee;
   --warning: #b9651b;
   --warning-bg: #fdf3e7;
-  --cluster1: #4a7da6;
-  --cluster2: #b58a2a;
-  --cluster3: #c1632b;
-  --cluster4: #8b1d1d;
 }
 
 * { box-sizing: border-box; }
@@ -233,11 +229,7 @@ pre code {
   margin: 24px 0;
 }
 
-/* Cluster color indicators (via h2 anchor) */
-#\33 -cluster-1-curiosos-frios { border-left: 4px solid var(--cluster1); padding-left: 18px; }
-#\34 -cluster-2-leitores-e-estudantes { border-left: 4px solid var(--cluster2); padding-left: 18px; }
-#\35 -cluster-3-praticantes-sem-pos-graduacao { border-left: 4px solid var(--cluster3); padding-left: 18px; }
-#\36 -cluster-4-pos-graduados { border-left: 4px solid var(--cluster4); padding-left: 18px; }
+/* (Regras de cor por cluster removidas — fluxo unico) */
 
 hr {
   border: none;
@@ -676,11 +668,9 @@ footer {
     <ul>
       <li><a href="#1-resumo-visual-do-fluxo">1. Resumo visual do fluxo</a></li>
 <li><a href="#2-notas-operacionais">2. Notas operacionais</a></li>
-<li><a href="#3-cluster-1-curiosos-frios">3. CLUSTER 1 — Curiosos / Frios</a></li>
-<li><a href="#4-cluster-2-leitores-e-estudantes">4. CLUSTER 2 — Leitores e Estudantes</a></li>
-<li><a href="#5-cluster-3-praticantes-sem-pos-graduacao">5. CLUSTER 3 — Praticantes sem pós-graduação</a></li>
-<li><a href="#6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</a></li>
-<li><a href="#7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</a></li>
+<li><a href="#3-fluxo-do-funil">3. Fluxo do funil</a></li>
+<li><a href="#4-follow-ups">4. Follow-ups</a></li>
+<li><a href="#5-mensagens-utilitarias-compartilhadas">5. Mensagens utilitárias (compartilhadas)</a></li>
     </ul>
     <div class="asset-section">
       <h2>Material do funil</h2>
@@ -738,433 +728,165 @@ footer {
       <div class="eyebrow">Funil de WhatsApp — Pesquisa do Dr. Italo Marsili</div>
       <h1>Roteiros das Mensagens do Funil de Logoterapia</h1>
       <p>Documento operacional dos roteiros a serem implementados via API do WhatsApp. Cada mensagem está separada em blocos verdes (estilo balão de WhatsApp) e pode ser copiada diretamente para a régua de automação.</p>
-      <div class="meta">Versão: 15/05/2026 · 4 clusters · 106 contatos qualificados</div>
+      <div class="meta">Versão: 19/05/2026 · Fluxo único · 106 contatos qualificados · Foco: Imersão 23/05</div>
     </div>
     <h1 id="roteiros-do-funil-de-whatsapp-logoterapia">Roteiros do Funil de WhatsApp — Logoterapia</h1>
-<p>Funil de mensagens via API do WhatsApp para contatar os respondentes da pesquisa do Dr. Italo Marsili sobre Logoterapia.</p>
-<p>Todas as mensagens estão escritas em <strong>primeira pessoa, como o Italo</strong>, partindo do princípio de que o número de origem é um número verificado em nome dele. Tom direto, técnico quando o cluster comporta, sem linguagem marketeira ("transformador", "imperdível", "revolucionário") e sem emojis (o Italo não usa nos stories).</p>
+<p>Funil de mensagens via API do WhatsApp para contatar os respondentes da pesquisa sobre Logoterapia. <strong>Fluxo único, igual para todos os respondentes.</strong> Sem segmentação por cluster.</p>
+<p>O objetivo central é levar o respondente para a <strong>Imersão "O Sentido da Vida"</strong>, ao vivo no YouTube com o Dr. Italo Marsili, no <strong>sábado, 23 de maio, das 8h às 12h</strong>. A imersão é reforçada em <strong>todas as mensagens</strong> do fluxo — com tom adaptado ao momento.</p>
+<p>A primeira mensagem é desenhada para ser submetida como <strong>template utility</strong> na biblioteca da Meta WhatsApp Business (linguagem factual, referência ao opt-in da pesquisa, sem viés promocional, com botões de quick reply).</p>
 <hr />
 <h2 id="1-resumo-visual-do-fluxo">1. Resumo visual do fluxo</h2>
 <pre><code>[Pesquisa preenchida]
          │
          ▼
-[Cluster atribuído na planilha]
-         │
-         ▼
-ESTÁGIO 1 ── pergunta com 3 opções (variável por cluster)
+ESTÁGIO 1 ── Mensagem inicial (utility template Meta)
+              &quot;Posso enviar o material do Dr. Italo?&quot;
+              Botões: [Pode enviar]   [Agora não]
          │
    ┌─────┴─────┐
- responde   nao responde
-   │             │
-   │             ▼
-   │       Follow-up D+1 → D+3 → parar
+ Pode enviar    Agora não
+   │                │
+   │                ▼
+   │           Resposta agradecida + lembrete da imersão → fim da régua
    ▼
-ESTÁGIO 2 ── oferta do PDF
+ESTÁGIO 2 ── Envia PDF do trecho inicial do livro
+              + convite à imersão
+              Botão: [Já li, manda o áudio]
          │
-         ▼ (sim)
-ESTÁGIO 3 ── envia PDF + oferta do áudio
+         ▼ (toca o botão)
+ESTÁGIO 3 ── Envia áudio do Italo comentando o trecho
+              + reforço da imersão
          │
-         ▼ (responde leitura)
-ESTÁGIO 4 ── envia áudio + pede feedback
-         │
-         ▼ (D+1 após feedback)
-ESTÁGIO 5 ── apresenta curso + bifurca:
-   ┌──────────────────────────┐
-   │ 1) compra direta (curso) │
-   │ 2) imersão 23/05 (Italo) │
-   └──────────────────────────┘
+         ▼ (no dia 22 de maio, véspera da imersão)
+ESTÁGIO 4 ── Lembrete véspera: &quot;amanhã às 8h, ao vivo no YouTube&quot;
+              + link de acesso
 </code></pre>
+<p>Follow-up em D+1 entre cada estágio sem resposta, sempre reforçando a imersão.</p>
 <hr />
 <h2 id="2-notas-operacionais">2. Notas operacionais</h2>
 <h3 id="placeholders-de-variavel">Placeholders de variável</h3>
 <ul>
 <li><code>{{nome}}</code> — primeiro nome do respondente (campo "Nome" da pesquisa, primeiro token)</li>
-<li><code>{{link_curso}}</code> — URL final de checkout do curso</li>
-<li><code>{{link_imersao}}</code> — URL de inscrição da imersão "O Sentido da Vida" com Dr. Italo Marsili (23 de maio, 8h–12h)</li>
-<li><code>{{pdf_amostra}}</code> — anexo do PDF com um trecho inicial do livro "O Sentido da Vida Explicado"</li>
-<li><code>{{audio_capitulo}}</code> — anexo do áudio do Italo comentando o material enviado</li>
+<li><code>{{link_imersao}}</code> — URL de inscrição da imersão "O Sentido da Vida"</li>
+<li><code>{{pdf_amostra}}</code> — anexo do PDF com o trecho inicial do livro</li>
+<li><code>{{audio_capitulo}}</code> — anexo do áudio do Italo comentando o material</li>
 </ul>
 <h3 id="valores-definidos">Valores definidos</h3>
 <ul>
-<li><code>{{link_curso}}</code> = <code>https://pay.hotmart.com/S105798181S?off=qw0dvfg9&amp;checkoutMode=10</code> (checkout Hotmart, compra direta)</li>
-<li><code>{{link_imersao}}</code> = <code>https://www.italomarsili.com.br/sv0526l/inscricao/v1</code> (inscrição da imersão "O Sentido da Vida", 23 de maio, 8h às 12h)</li>
-<li><code>{{pdf_amostra}}</code> = <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/trecho-inicial.pdf</code> (PDF com o trecho inicial do livro). Para evitar exposição da URL pública, recomenda-se subir o PDF como mídia no WhatsApp Business e usar o media ID na automação.</li>
-<li><code>{{audio_capitulo}}</code> = <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/audio-italo.m4a</code> (áudio do Italo comentando o material). Mesma recomendação: subir como mídia no WhatsApp Business e usar o media ID.</li>
+<li><code>{{link_imersao}}</code> = <code>https://www.italomarsili.com.br/sv0526l/inscricao/v1</code></li>
+<li><code>{{pdf_amostra}}</code> = <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/trecho-inicial.pdf</code> (recomenda-se subir como mídia no WhatsApp Business e usar o media ID, em vez do link público)</li>
+<li><code>{{audio_capitulo}}</code> = <code>https://pedrozuazo-cyber.github.io/funil-logoterapia/audio-italo.m4a</code> (mesma recomendação: subir como mídia)</li>
 </ul>
-<h3 id="timing-sugerido-entre-mensagens">Timing sugerido entre mensagens</h3>
+<h3 id="consideracoes-sobre-a-meta-utility-template">Considerações sobre a Meta (utility template)</h3>
+<p>A primeira mensagem (Estágio 1) é desenhada para ser submetida como <strong>template utility</strong> na biblioteca da Meta. Para ser aprovado nessa categoria:</p>
 <ul>
-<li>Estágio 1 → 2: enviar Estágio 2 quando a pessoa responder ao Estágio 1.</li>
-<li>Estágio 2 → 3: enviar Estágio 3 (com o PDF anexado) imediatamente após o "sim" do Estágio 2.</li>
-<li>Estágio 3 → 4: aguardar pelo menos 24 horas após o envio do PDF antes do Estágio 4.</li>
-<li>Estágio 4 → 5: aguardar pelo menos 24 horas após o envio do áudio antes do Estágio 5.</li>
+<li>A linguagem é factual e remete à interação anterior do contato (preenchimento da pesquisa). Isso classifica a mensagem como continuação de uma transação, não como marketing.</li>
+<li>Não há menção a curso, oferta, desconto, urgência ou linguagem comercial.</li>
+<li>Botões usados: <strong>quick reply</strong> (até 3 permitidos). Aqui usamos dois: "Pode enviar" e "Agora não".</li>
+<li>O template precisa ser submetido para aprovação no painel da Meta Business Manager antes do disparo. O template aprovado terá uma <code>template_name</code> que a automação vai referenciar.</li>
+</ul>
+<p>Recomendação: o restante das mensagens do fluxo (Estágios 2, 3 e 4) <strong>não precisa ser template aprovado</strong> — desde que o disparo ocorra dentro da janela de 24 horas após uma interação do contato (toque em botão, resposta etc.). Como cada estágio é uma resposta a uma ação do contato, a janela permanece aberta.</p>
+<h3 id="timing-entre-mensagens">Timing entre mensagens</h3>
+<ul>
+<li>Estágio 1 → 2: enviar Estágio 2 imediatamente após o toque em "Pode enviar".</li>
+<li>Estágio 2 → 3: enviar Estágio 3 imediatamente após o toque em "Já li, manda o áudio".</li>
+<li>Estágio 4 (lembrete véspera): disparar na manhã do dia 22 de maio (1 dia antes da imersão).</li>
 </ul>
 <h3 id="follow-ups">Follow-ups</h3>
+<p>Para cada estágio em que o contato não responde, disparar <strong>um único follow-up em D+1</strong>, sempre reforçando a imersão. Sem segundo toque (D+3) — pra não desgastar.</p>
+<h3 id="voz">Voz</h3>
 <ul>
-<li>Para todo estágio em que a pessoa não responder: 1 follow-up em D+1 e, se ainda não responder, 1 follow-up final em D+3. Depois disso, parar — não insistir.</li>
+<li>Curto e factual no Estágio 1 (requisito utility).</li>
+<li>Mais convidativo nos Estágios 2 e 3 — sem virar promocional.</li>
+<li>Os Estágios 4 (lembrete véspera) é assertivo e curto: data, hora, link.</li>
+<li>Sem emojis, sem adjetivos marketeiros ("transformador", "imperdível", "revolucionário").</li>
+<li>Não cursar, vender ou usar urgência artificial.</li>
 </ul>
-<h3 id="voz-do-italo-do-que-extrai-dos-stories">Voz do Italo (do que extraí dos stories)</h3>
+<h3 id="pontos-de-atencao">Pontos de atenção</h3>
 <ul>
-<li>Curto, declarativo. Frases inteiras, não fragmentos.</li>
-<li>Termos técnicos quando o cluster suporta: <em>ontologia dimensional</em>, <em>sofrimento noético</em>, <em>dimensão noética</em>, <em>vontade de sentido</em>, <em>intenção paradoxal</em>.</li>
-<li>Fórmula prática dele: <strong>Trabalhe. Sirva. Seja forte. Não encha o saco.</strong> — usar em pelo menos um ponto do funil para os clusters mais avançados (é assinatura).</li>
-<li>Honesto sobre limites: Logoterapia não é melhor para tudo, é melhor para sofrimento noético.</li>
-<li>Pedagógico, não vendedor. Confronta perguntas imprecisas com clareza ("acho que você quer saber X, certo?").</li>
-</ul>
-<h3 id="o-que-nao-usar">O que NÃO usar</h3>
-<ul>
-<li>"Tudo bem?", "espero que esteja bem", "como você está?"</li>
-<li>Emojis e emoticons</li>
-<li>"Ei!" / "Oiê" / abertura excessivamente informal</li>
-<li>Adjetivos marketeiros: incrível, único, definitivo (sim, o livro se chama "definitiva", mas a palavra solta na conversa soa apelativo), revolucionário</li>
-<li>Sinais de cópia em massa: "estamos enviando para um grupo seleto", "você foi escolhido"</li>
-<li>Promessas de resultado clínico</li>
-</ul>
-<h3 id="pontos-de-atencao-legaisde-conformidade">Pontos de atenção legais/de conformidade</h3>
-<ul>
-<li>Toda a base deu opt-in explícito ao preencher o formulário, mas a primeira mensagem deve deixar claro o motivo do contato.</li>
+<li>Toda a base deu opt-in explícito ao preencher o formulário — isso sustenta a continuidade da interação.</li>
 <li>Se a pessoa pedir para parar (STOP, sair, não quero mais), encerrar imediatamente e remover da régua.</li>
 </ul>
-<h3 id="regra-de-fallback-resposta-fora-do-menu-numerado">Regra de fallback (resposta fora do menu numerado)</h3>
-<p>Se a pessoa responder ao Estágio 1 com algo que <strong>não corresponde a nenhum número do menu</strong> (texto livre, emoji, áudio, "ok", "manda", "tudo bem", etc.), <strong>não avançar pro Estágio 2</strong>. Enviar um <strong>re-prompt</strong> repetindo as opções e pedindo o número. Isso evita seguir a conversa sem ter classificado a resposta.</p>
-<p>As mensagens de re-prompt por cluster estão na seção 6 ("Mensagens utilitárias"), abaixo de "Re-prompt quando a resposta do Estágio 1 vier fora do menu".</p>
-<p><strong>Escalonamento:</strong>
-- 1ª resposta fora do menu → enviar re-prompt (uma vez).
-- 2ª resposta ainda fora do menu → enviar uma confirmação leve ("ok, vou seguir mesmo assim") e avançar pro Estágio 2 usando a variante de "fallback seguro" do cluster:
-  - <strong>Cluster 1 (Curiosos / Frios)</strong> → variante 1 ("Já ouvi falar do Viktor Frankl") — entrada mais neutra.
-  - <strong>Cluster 2 (Leitores e Estudantes)</strong> → variante 1 ("Entender o que Frankl propôs") — entrada neutra e ampla, serve a qualquer perfil dentro do cluster.
-  - <strong>Cluster 3 (Praticantes)</strong> → variante 1 ("Falta de itinerário prático") — dor mais frequente declarada.
-  - <strong>Cluster 4 (Pós-graduados)</strong> → variante 2 ("Itinerário prático sistematizado") — dor transversal mesmo entre especialistas.
-- A operação pode opcionalmente marcar esse contato como "precisa de revisão humana" pra um operador olhar depois.</p>
 <hr />
-<h2 id="3-cluster-1-curiosos-frios">3. CLUSTER 1 — Curiosos / Frios</h2>
-<p><em>9 pessoas (8,5%). Marcaram apenas "Nunca ouvi falar / Sei muito pouco". Quase ninguém atende. Mistura de estudantes e leigos curiosos.</em></p>
-<p><strong>Objetivo do estágio 1:</strong> despertar interesse com uma pergunta acessível, sem jargão.</p>
-<h3 id="estagio-1-mensagem-inicial">Estágio 1 — Mensagem inicial</h3>
+<h2 id="3-fluxo-do-funil">3. Fluxo do funil</h2>
+<h3 id="estagio-1-mensagem-inicial-template-utility-meta">Estágio 1 — Mensagem inicial (template utility Meta)</h3>
 <blockquote>
-<p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
-<p>Você preencheu aquela pesquisa que pedi nos stories sobre Logoterapia — obrigado por reservar um tempo.</p>
-<p>Vi que você ainda conhece pouco do tema. Estou justamente terminando um livro sobre Logoterapia e quero te mandar um trecho inicial em primeira mão.</p>
-<p>Antes, me ajuda a entender uma coisa rapidinho. O que te fez clicar no formulário e preencher?</p>
-<p>1 — Já ouvi falar do Viktor Frankl e quero entender o que ele propôs
-2 — Estou passando por um momento de falta de sentido / "pra quê?"
-3 — Trabalho com gente e quero ferramentas pra ajudar</p>
-<p>Responde só com o número.</p>
+<p>Olá, {{nome}}. Vi que você preencheu a nossa pesquisa e, conforme combinado, vou enviar o material do Dr. Italo Marsili. Posso enviar por aqui?</p>
+<p>[Pode enviar]   [Agora não]</p>
 </blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
-<p><strong>Se respondeu 1 — "Já ouvi falar do Viktor Frankl e quero entender o que ele propôs":</strong></p>
+<p><strong>Botões (quick reply):</strong> "Pode enviar" e "Agora não".</p>
+<p><strong>Após "Pode enviar":</strong> segue direto para o Estágio 2.</p>
+<p><strong>Após "Agora não":</strong></p>
 <blockquote>
-<p>Perfeito.</p>
-<p>Se o que você quer é entender melhor o que o Frankl propôs, então é exatamente o que vou te ajudar a fazer. Nas próximas mensagens vou te mandar um trecho inicial do meu livro "O Sentido da Vida Explicado" em PDF, em primeira mão — antes da editora começar a divulgar.</p>
-<p>Posso enviar?</p>
+<p>Tudo bem, {{nome}}. Quando quiser receber o material, é só me chamar aqui.</p>
+<p>Já adianto que no sábado, 23 de maio, das 8h às 12h, o Dr. Italo conduz ao vivo no YouTube a imersão "O Sentido da Vida". Se quiser participar, a inscrição é em {{link_imersao}}.</p>
 </blockquote>
-<p><strong>Se respondeu 2 — "Estou passando por um momento de falta de sentido / pra quê?":</strong></p>
+<p>A régua para esse contato encerra após essa resposta. Recomenda-se ainda assim disparar o Estágio 4 (lembrete véspera) no dia 22 — vale o aviso amigável.</p>
+<h3 id="estagio-2-envio-do-pdf-convite-a-imersao">Estágio 2 — Envio do PDF + convite à imersão</h3>
 <blockquote>
-<p>Perfeito — e obrigado pela confiança em me dizer isso.</p>
-<p>Quando a pergunta "pra quê?" começa a aparecer com força, em geral ela está sinalizando algo importante. O Frankl chamou isso de vazio existencial, e um trecho inicial do meu livro entra justamente nesse ponto: o que é, de onde vem e por que ele é mais comum hoje do que se imagina.</p>
-<p>Vou te mandar um trecho inicial em PDF, em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
+<p>Aqui está, {{nome}}: o trecho inicial do novo livro do Dr. Italo Marsili — "O Sentido da Vida Explicado". {{pdf_amostra}}</p>
+<p>Antes que esqueça: no sábado, 23 de maio, das 8h às 12h, o Dr. Italo conduz ao vivo no YouTube a imersão "O Sentido da Vida". É o aprofundamento natural do que você vai ler aqui. Inscreva-se em {{link_imersao}}.</p>
+<p>Quando terminar a leitura, toca no botão e eu te mando o áudio do Dr. Italo comentando o material.</p>
+<p>[Já li, manda o áudio]</p>
 </blockquote>
-<p><strong>Se respondeu 3 — "Trabalho com gente e quero ferramentas pra ajudar":</strong></p>
+<p><strong>Botão (quick reply):</strong> "Já li, manda o áudio".</p>
+<h3 id="estagio-3-envio-do-audio-reforco-da-imersao">Estágio 3 — Envio do áudio + reforço da imersão</h3>
 <blockquote>
-<p>Perfeito.</p>
-<p>Pra quem trabalha com gente, a Logoterapia entrega algo que poucas abordagens dão: um critério firme pra entender o que sustenta uma pessoa em pé quando o resto desaba. Um trecho inicial do meu livro abre exatamente esse terreno.</p>
-<p>Vou te mandar o PDF em primeira mão, antes da editora começar a divulgar. Posso enviar?</p>
+<p>Aqui está, {{nome}}. {{audio_capitulo}}</p>
+<p>Lembrete: no sábado, 23 de maio, das 8h às 12h, o Dr. Italo conduz ao vivo no YouTube a imersão "O Sentido da Vida". Quem leu o trecho e ouviu este áudio aproveita muito mais. Garanta sua vaga em {{link_imersao}}.</p>
 </blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio">Estágio 3 — Envio do PDF + oferta do áudio</h3>
+<h3 id="estagio-4-lembrete-vespera-da-imersao">Estágio 4 — Lembrete véspera da imersão</h3>
+<p>Disparar na manhã do dia 22 de maio para todos os contatos que passaram do Estágio 1 (independente de terem chegado ao áudio).</p>
 <blockquote>
-<p>Aí está o material. {{pdf_amostra}}</p>
-<p>Depois de ler, me responde. Gravei um áudio de uns 8 minutos comentando esse material — com pontos que ficaram de fora da versão final do livro pra eu trazer pessoalmente. Quando você terminar a leitura, te mando.</p>
-</blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback">Estágio 4 — Envio do áudio + feedback</h3>
-<blockquote>
-<p>{{audio_capitulo}}</p>
-<p>Quando ouvir, me conta o que achou — o que fez sentido pra você, ou o que ficou em aberto. Leio todas as respostas.</p>
-</blockquote>
-<h3 id="estagio-5-curso-ctas">Estágio 5 — Curso + CTAs</h3>
-<blockquote>
-<p>{{nome}}, abro uma última conversa.</p>
-<p>Paralelo ao livro, montei um curso pra quem quer mais do que ler — entender, na prática, como a Logoterapia funciona. Pra quem está começando do zero, ele entrega os fundamentos: a ontologia do Frankl, como o sentido se manifesta no dia a dia, e como aplicar isso na própria vida.</p>
-<p>Duas formas de seguir:</p>
-<p>1 — Vaga direto no curso: {{link_curso}}
-2 — Imersão "O Sentido da Vida" comigo, 23 de maio, 8h–12h: {{link_imersao}}</p>
-<p>Responde com 1 ou 2.</p>
-</blockquote>
-<h3 id="follow-ups-cluster-1">Follow-ups Cluster 1</h3>
-<p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, só pra garantir que minha mensagem anterior chegou. Era só pra eu entender o que te atraiu pra pesquisa antes de te mandar um trecho inicial do livro. Pode responder o número da opção que combina mais.</p>
-</blockquote>
-<p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
-<blockquote>
-<p>{{nome}}, última tentativa pra não te encher o saco. Se você ainda quer receber o material do livro, é só responder qualquer número. Se não, sem problema — paro por aqui.</p>
-</blockquote>
-<p><strong>Após Estágio 2 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>Esqueci de te perguntar: posso mandar o material agora? Responde sim ou não.</p>
-</blockquote>
-<p><strong>Após Estágio 4 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, te mandei um áudio ontem. Se você ouviu, vale me contar o que ficou. Se não rolou, sem problema.</p>
+<p>Oi, {{nome}}. Lembrete: amanhã, sábado (23 de maio), começa às 8h a imersão "O Sentido da Vida" com o Dr. Italo Marsili, ao vivo no YouTube. Vai até as 12h.</p>
+<p>Link de acesso: {{link_imersao}}</p>
+<p>Te vejo lá.</p>
 </blockquote>
 <hr />
-<h2 id="4-cluster-2-leitores-e-estudantes">4. CLUSTER 2 — Leitores e Estudantes</h2>
-<p><em>53 pessoas (50%). Marcaram B e/ou C — já leram Frankl ou fizeram curso básico, mas não aplicam profissionalmente. Maior cluster.</em></p>
-<p><strong>Objetivo do estágio 1:</strong> posicionar o Italo como leitor sério de Frankl ("desde 2014"), fisgar com a possibilidade de ver coisa nova/ajustada.</p>
-<h3 id="estagio-1-mensagem-inicial_1">Estágio 1 — Mensagem inicial</h3>
+<h2 id="4-follow-ups">4. Follow-ups</h2>
+<p>Todos disparam em D+1 do estágio sem resposta. Único toque — sem D+3.</p>
+<h3 id="apos-estagio-1-sem-resposta-d1">Após Estágio 1 sem resposta (D+1)</h3>
 <blockquote>
-<p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
-<p>Você preencheu a pesquisa sobre Logoterapia que pedi nos stories — obrigado.</p>
-<p>Pelo que você marcou, já conhece os conceitos do Frankl. Estou desde 2014 mergulhado nele, ajustando algumas coisas, e quero te mandar um material em primeira mão.</p>
-<p>Antes, me ajuda a calibrar. O que você quer com a Logoterapia hoje?</p>
-<p>1 — Entender melhor o que Frankl propôs (teoria e ideias)
-2 — Usar a Logoterapia comigo, na minha própria busca de sentido
-3 — Aplicar a Logoterapia no meu trabalho (clínica, ensino, qualquer área)</p>
-<p>Responde só com o número.</p>
+<p>Oi, {{nome}}. Passando aqui pra confirmar: posso te enviar o material do Dr. Italo Marsili que você pediu na pesquisa?</p>
+<p>Ah, e se ainda não soube: no sábado (23 de maio), das 8h às 12h, o Dr. Italo conduz ao vivo no YouTube a imersão "O Sentido da Vida". {{link_imersao}}</p>
+<p>[Pode enviar]   [Agora não]</p>
 </blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_1">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
-<p><strong>Se respondeu 1 — "Entender melhor o que Frankl propôs":</strong></p>
+<h3 id="apos-estagio-2-sem-resposta-d1">Após Estágio 2 sem resposta (D+1)</h3>
+<p>Contato recebeu o PDF mas ainda não tocou o botão "Já li, manda o áudio".</p>
 <blockquote>
-<p>Perfeito.</p>
-<p>Se o que você quer é entender o que o Frankl realmente propôs — não a versão diluída que circula por aí, mas as ideias-base — você marcou o ponto certo. Um trecho inicial do meu livro abre essa moldura: o que é a Logoterapia, qual a visão de pessoa humana que ela sustenta, e onde ela difere do que veio antes.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
+<p>{{nome}}, conseguiu ler o trecho inicial? Quando terminar, toca no botão que eu te mando o áudio do Dr. Italo.</p>
+<p>E não esquece: imersão "O Sentido da Vida" no sábado (23), 8h–12h, ao vivo no YouTube — {{link_imersao}}</p>
+<p>[Já li, manda o áudio]</p>
 </blockquote>
-<p><strong>Se respondeu 2 — "Usar a Logoterapia comigo, na minha própria busca de sentido":</strong></p>
+<h3 id="apos-estagio-3-sem-resposta-d1">Após Estágio 3 sem resposta (D+1)</h3>
 <blockquote>
-<p>Perfeito — e esse uso pessoal é tão legítimo quanto o clínico. O Frankl escreveu pensando exatamente em quem ia aplicar isso na própria vida.</p>
-<p>Um trecho inicial do meu livro entra justamente nesse ponto: como o sentido se manifesta no dia a dia, como reconhecer um vazio existencial quando ele aparece, e por onde começar a responder.</p>
-<p>Vou te mandar o PDF em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<p><strong>Se respondeu 3 — "Aplicar a Logoterapia no meu trabalho":</strong></p>
-<blockquote>
-<p>Perfeito.</p>
-<p>Pra quem trabalha com gente — terapeuta, professor, líder, qualquer área — a Logoterapia entrega algo que poucas abordagens dão: um critério firme pra entender o que sustenta uma pessoa em pé quando o resto desaba. Um trecho inicial do meu livro abre exatamente esse terreno.</p>
-<p>Vou te mandar o PDF em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_1">Estágio 3 — Envio do PDF + oferta do áudio</h3>
-<blockquote>
-<p>Aí está o material. {{pdf_amostra}}</p>
-<p>Quando terminar, me avisa — gravei um áudio comentando esse material, com pontos que tirei do recorte final do livro porque preferi trazer pessoalmente. Te mando depois.</p>
-</blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback_1">Estágio 4 — Envio do áudio + feedback</h3>
-<blockquote>
-<p>{{audio_capitulo}}</p>
-<p>Ouve quando der. Depois me conta: qual ponto fez mais sentido, ou se algo ficou em aberto. Leio cada resposta.</p>
-</blockquote>
-<h3 id="estagio-5-curso-ctas_1">Estágio 5 — Curso + CTAs</h3>
-<blockquote>
-<p>{{nome}}, deixa eu fechar a conversa.</p>
-<p>Paralelo ao livro, montei um curso pra quem está no seu ponto: já leu, conhece os conceitos, mas falta a ponte pra prática. Ele entrega o que a literatura não dá: como a ontologia dimensional vira decisão clínica, o que é sofrimento noético na sessão de verdade, e como aplicar isso em casos reais.</p>
-<p>Duas formas de seguir:</p>
-<p>1 — Inscrição direta no curso: {{link_curso}}
-2 — Imersão "O Sentido da Vida" comigo, 23 de maio, 8h–12h: {{link_imersao}}</p>
-<p>Responde com 1 ou 2.</p>
-</blockquote>
-<h3 id="follow-ups-cluster-2">Follow-ups Cluster 2</h3>
-<p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, esqueci de te perguntar de novo: qual desses pontos te interessa mais? É só responder o número, e a partir daí eu te mando um trecho inicial do livro.</p>
-</blockquote>
-<p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
-<blockquote>
-<p>{{nome}}, última. Se você ainda quer o material, responde qualquer coisa. Se não, sem problema, paro por aqui.</p>
-</blockquote>
-<p><strong>Após Estágio 4 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>Te mandei o áudio ontem. Se ouviu, vale me contar o que ficou. Tenho uma última coisa pra te mostrar.</p>
+<p>Oi, {{nome}}. Espero que o áudio do Dr. Italo tenha feito sentido. Lembrete da imersão "O Sentido da Vida": sábado (23), 8h–12h, ao vivo no YouTube. Inscreva-se em {{link_imersao}}.</p>
 </blockquote>
 <hr />
-<h2 id="5-cluster-3-praticantes-sem-pos-graduacao">5. CLUSTER 3 — Praticantes sem pós-graduação</h2>
-<p><em>19 pessoas (17,9%). Marcaram D (usam ou tentam usar Logoterapia), sem E. Cluster de maior potencial de conversão — dor clínica declarada.</em></p>
-<p><strong>Objetivo do estágio 1:</strong> validar a dor (insegurança clínica) e oferecer caminho para o itinerário prático.</p>
-<h3 id="estagio-1-mensagem-inicial_2">Estágio 1 — Mensagem inicial</h3>
-<blockquote>
-<p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
-<p>Você preencheu a pesquisa sobre Logoterapia que pedi nos stories — obrigado.</p>
-<p>Vi que você já tenta aplicar Logoterapia no consultório. É onde quase todo terapeuta trava — a literatura é farta em teoria e curta em itinerário. Quero te ouvir antes de mandar o material que separei.</p>
-<p>A maior trava hoje, na sua prática, é:</p>
-<p>1 — Falta de itinerário prático (ferramentas, técnicas, momento certo)
-2 — Insegurança em casos onde o sofrimento não é puramente noético
-3 — Integrar a Logoterapia com outras abordagens (TCC, psicanálise, etc.)</p>
-<p>Responde só com o número.</p>
-</blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_2">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
-<p><strong>Se respondeu 1 — "Falta de itinerário prático":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>A literatura padrão é farta em conceito e curta em ferramenta — e o "saber quando aplicar" também depende de critério clínico, não de intuição. Você não está sozinho nisso. O meu livro entrega a base que sustenta o ferramental, e um trecho inicial já abre essa moldura. As ferramentas em si, eu sistematizei num material à parte do qual a gente fala depois.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<p><strong>Se respondeu 2 — "Insegurança quando o sofrimento não é puramente noético":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>Esse é o ponto onde mais terapeuta se queima — porque tenta resolver com Logoterapia o que não é dela. O Frankl foi médico psiquiatra antes de qualquer coisa, e a ontologia dimensional dele resolve isso. Um trecho inicial do meu livro abre essa fundação.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<p><strong>Se respondeu 3 — "Integrar a Logoterapia com outras abordagens":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>Integrar bem exige saber exatamente onde a Logoterapia começa e onde ela termina — caso contrário, vira mistura. O meu livro trata essa fronteira em vários momentos, e um trecho inicial já fixa o lugar dela no quadro maior.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_2">Estágio 3 — Envio do PDF + oferta do áudio</h3>
-<blockquote>
-<p>Aí está. {{pdf_amostra}}</p>
-<p>Quando ler, me avisa. Gravei um áudio comentando esse material com o olho na clínica — coisa que não cabia no livro mas que importa pra quem atende. Mando assim que você terminar.</p>
-</blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback_2">Estágio 4 — Envio do áudio + feedback</h3>
-<blockquote>
-<p>{{audio_capitulo}}</p>
-<p>Ouve quando der. Depois me conta o que achou — qual ponto bateu com a sua prática e qual ainda ficou nebuloso. Leio todas as respostas.</p>
-</blockquote>
-<h3 id="estagio-5-curso-ctas_2">Estágio 5 — Curso + CTAs</h3>
-<blockquote>
-<p>{{nome}}, antes de te liberar.</p>
-<p>Você marcou que tenta aplicar Logoterapia — é o que ouço da maioria: a teoria é bonita, na hora da sessão falta itinerário.</p>
-<p>Em paralelo ao livro, montei um curso. O foco é o que falta: critério clínico, quando entrar e quando não entrar, como sustentar quando o paciente resiste, e como integrar com o que você já usa.</p>
-<p>Trabalhe. Sirva. Seja forte. Não encha o saco. É Frankl destilado na sua consulta.</p>
-<p>Duas formas de seguir:</p>
-<p>1 — Inscrição direta no curso: {{link_curso}}
-2 — Imersão "O Sentido da Vida" comigo, 23 de maio, 8h–12h: {{link_imersao}}</p>
-<p>Responde com 1 ou 2.</p>
-</blockquote>
-<h3 id="follow-ups-cluster-3">Follow-ups Cluster 3</h3>
-<p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, vou simplificar. Em uma palavra ou frase: qual é hoje a sua maior dificuldade aplicando Logoterapia? A partir disso te mando o que separei.</p>
-</blockquote>
-<p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
-<blockquote>
-<p>Última. Se você ainda quer ver o material, responde qualquer coisa. Se não, paro por aqui.</p>
-</blockquote>
-<p><strong>Após Estágio 4 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>Te mandei o áudio ontem. Tenho uma última coisa que separei pra terapeutas que estão exatamente no seu ponto — me avisa se posso mandar.</p>
-</blockquote>
-<hr />
-<h2 id="6-cluster-4-pos-graduados">6. CLUSTER 4 — Pós-graduados</h2>
-<p><em>25 pessoas (23,6%). Marcaram E. Especialistas formais. Falar de par para par, sem condescender, com promessa de novidade real.</em></p>
-<p><strong>Objetivo do estágio 1:</strong> posicionar como debate entre pares. Sinalizar "achados" próprios. Atrair pelo rigor.</p>
-<h3 id="estagio-1-mensagem-inicial_3">Estágio 1 — Mensagem inicial</h3>
-<blockquote>
-<p>Oi, {{nome}}. Aqui é o Italo Marsili.</p>
-<p>Você preencheu a pesquisa nos stories — obrigado por entrar no debate.</p>
-<p>Como pós-graduado, você sabe o buraco entre a literatura e o consultório. Estou desde 2014 estudando Frankl e fechei alguns ajustes que quero discutir com pares antes do livro sair.</p>
-<p>Pra calibrar, qual desses temas te interessa mais hoje?</p>
-<p>1 — Refinamentos da ontologia dimensional e do sofrimento noético
-2 — Itinerário prático sistematizado (o que a pós não entregou)
-3 — Diálogo com outras tradições (psicanálise, TCC, fenomenologia)</p>
-<p>Responde só com o número.</p>
-</blockquote>
-<h3 id="estagio-2-apos-a-resposta-oferta-do-pdf-uma-variante-por-opcao-do-estagio-1_3">Estágio 2 — Após a resposta, oferta do PDF (uma variante por opção do Estágio 1)</h3>
-<p><strong>Se respondeu 1 — "Refinamentos da ontologia dimensional e do sofrimento noético":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>Esse é exatamente o terreno onde mais trabalhei nesses últimos anos. Os critérios de sofrimento noético e os refinamentos que faço na ontologia dimensional do Frankl são onde concentro a parte mais técnica do livro — incluindo alguns ajustes em pontos onde o próprio Frankl ficou em aberto. Um trecho inicial já fixa a moldura que sustenta esses refinamentos.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<p><strong>Se respondeu 2 — "Itinerário prático sistematizado":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>A confissão honesta da maioria dos pós-graduados é essa: a teoria está, o itinerário não. Eu sistematizei o meu desses anos todos. Ele aparece no meu livro em vários pontos e se desdobra integralmente num material à parte do qual a gente fala depois. Um trecho inicial já sinaliza a lógica que sustenta o itinerário.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<p><strong>Se respondeu 3 — "Diálogo da Logoterapia com outras tradições":</strong></p>
-<blockquote>
-<p>Anotado.</p>
-<p>Esse diálogo é o que mais falta no debate brasileiro sobre Logoterapia — e é justamente o que mais me atrai. O meu livro tem páginas dedicadas ao confronto com psicanálise, TCC e fenomenologia, com posições que sei que vão te interessar. Um trecho inicial já abre o lugar epistemológico onde esse confronto faz sentido.</p>
-<p>Vou te mandar o PDF dessa amostra em primeira mão, antes da editora começar a circular. Posso enviar?</p>
-</blockquote>
-<h3 id="estagio-3-envio-do-pdf-oferta-do-audio_3">Estágio 3 — Envio do PDF + oferta do áudio</h3>
-<blockquote>
-<p>Aí está. {{pdf_amostra}}</p>
-<p>Lê com calma — vai abrir margem de discussão. Quando terminar, me avisa: gravei um áudio comentando esse material, inclusive com pontos que tirei do recorte final porque preferi guardar pra esta conversa direta. Te mando depois.</p>
-</blockquote>
-<h3 id="estagio-4-envio-do-audio-feedback_3">Estágio 4 — Envio do áudio + feedback</h3>
-<blockquote>
-<p>{{audio_capitulo}}</p>
-<p>Ouve quando puder. Depois me responde — quero saber o que faz sentido, o que destoa do que você estudou, e onde você acha que eu ainda preciso afinar. Esse retorno me importa.</p>
-</blockquote>
-<h3 id="estagio-5-curso-ctas_3">Estágio 5 — Curso + CTAs</h3>
-<blockquote>
-<p>{{nome}}, uma última proposta.</p>
-<p>O livro é o piso teórico. O curso é o que a pós não entregou: itinerário prático sistematizado, clínica do sofrimento noético operacionalizada, e os pontos que reorganizam a ontologia dimensional na consulta.</p>
-<p>Trabalhe. Sirva. Seja forte. Não encha o saco. É Frankl destilado em conduta clínica reproduzível.</p>
-<p>Você é exatamente o público que quero na sala. Duas formas:</p>
-<p>1 — Inscrição direta: {{link_curso}}
-2 — Imersão "O Sentido da Vida", 23 de maio, 8h–12h: {{link_imersao}}</p>
-<p>Responde com 1 ou 2.</p>
-</blockquote>
-<h3 id="follow-ups-cluster-4">Follow-ups Cluster 4</h3>
-<p><strong>Após Estágio 1 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, não esqueci de você. Era só responder o número da opção pra eu te mandar um trecho inicial do livro. Se algum dos temas não te servir, responde "outro" e me diga qual.</p>
-</blockquote>
-<p><strong>Após Estágio 1 sem resposta (D+3):</strong></p>
-<blockquote>
-<p>Última tentativa. Se ainda quer o material, responde qualquer coisa. Se não, paro por aqui — sem ressentimento.</p>
-</blockquote>
-<p><strong>Após Estágio 4 sem resposta (D+1):</strong></p>
-<blockquote>
-<p>{{nome}}, te mandei o áudio ontem. Mesmo se você discordar dele inteiro, vale me dizer. Tenho uma última coisa específica pros logoterapeutas pra te apresentar.</p>
-</blockquote>
-<hr />
-<h2 id="7-mensagens-utilitarias-compartilhadas">7. Mensagens utilitárias (compartilhadas)</h2>
+<h2 id="5-mensagens-utilitarias-compartilhadas">5. Mensagens utilitárias (compartilhadas)</h2>
 <h3 id="quando-a-pessoa-pede-para-parar">Quando a pessoa pede para parar</h3>
 <blockquote>
 <p>Entendido. Removo você daqui. Se quiser voltar depois, é só me chamar.</p>
 </blockquote>
-<h3 id="re-prompt-quando-a-resposta-do-estagio-1-vier-fora-do-menu">Re-prompt quando a resposta do Estágio 1 vier fora do menu</h3>
-<p>Disparar quando a 1ª resposta do contato não bater com nenhum dos números do menu daquele cluster.</p>
-<p><strong>Re-prompt Cluster 1 (Curiosos / Frios):</strong></p>
+<h3 id="quando-a-pessoa-pergunta-sobre-a-imersao-resposta-padrao">Quando a pessoa pergunta sobre a imersão (resposta padrão)</h3>
 <blockquote>
-<p>{{nome}}, talvez minha mensagem anterior não tenha ficado clara — peço desculpa. Pra eu te mandar o material certo, preciso que você responda só com o número da opção que combina mais:</p>
-<p>1 — Já ouvi falar do Viktor Frankl e quero entender o que ele propôs
-2 — Estou passando por um momento de falta de sentido / "pra quê?"
-3 — Trabalho com gente e quero ferramentas pra ajudar</p>
-<p>É só o número.</p>
+<p>A imersão "O Sentido da Vida" é no sábado, 23 de maio, das 8h às 12h, ao vivo no YouTube com o Dr. Italo Marsili. Inscrição: {{link_imersao}}</p>
 </blockquote>
-<p><strong>Re-prompt Cluster 2 (Leitores e Estudantes):</strong></p>
+<h3 id="quando-a-pessoa-responde-algo-fora-do-esperado-no-estagio-1">Quando a pessoa responde algo fora do esperado no Estágio 1</h3>
 <blockquote>
-<p>{{nome}}, deixa eu refazer a pergunta pra eu não te mandar o material errado. O que você quer com a Logoterapia hoje? Responde só com o número:</p>
-<p>1 — Entender melhor o que Frankl propôs (teoria e ideias)
-2 — Usar a Logoterapia comigo, na minha própria busca de sentido
-3 — Aplicar a Logoterapia no meu trabalho</p>
+<p>Anotei, {{nome}}. Vou seguir e te mandar o material. Se algo não fizer sentido pelo caminho, me avisa.</p>
 </blockquote>
-<p><strong>Re-prompt Cluster 3 (Praticantes):</strong></p>
+<p>(Depois disso, avançar pro Estágio 2.)</p>
+<h3 id="quando-a-pessoa-diz-que-ja-esta-inscrita-na-imersao">Quando a pessoa diz que já está inscrita na imersão</h3>
 <blockquote>
-<p>{{nome}}, deixa eu refazer a pergunta pra eu não te mandar o material errado. Na sua prática, a maior trava hoje é qual? Responde só com o número:</p>
-<p>1 — Falta de itinerário prático (ferramentas, técnicas, momento certo)
-2 — Insegurança quando o sofrimento não é puramente noético
-3 — Integrar a Logoterapia com outras abordagens</p>
+<p>Show, {{nome}}. Te vejo lá no sábado.</p>
 </blockquote>
-<p><strong>Re-prompt Cluster 4 (Pós-graduados):</strong></p>
+<h3 id="quando-a-pessoa-pergunta-se-a-imersao-e-gratuita-paga-fechada">Quando a pessoa pergunta se a imersão é gratuita / paga / fechada</h3>
 <blockquote>
-<p>{{nome}}, deixa eu refazer a pergunta pra eu te mandar a coisa certa. Qual desses temas te interessa mais hoje? Responde só com o número:</p>
-<p>1 — Refinamentos da ontologia dimensional e do sofrimento noético
-2 — Itinerário prático sistematizado
-3 — Diálogo da Logoterapia com outras tradições</p>
-</blockquote>
-<h3 id="quando-a-pessoa-responde-algo-fora-do-esperado-no-estagio-1-pela-segunda-vez">Quando a pessoa responde algo fora do esperado no Estágio 1 pela segunda vez</h3>
-<blockquote>
-<p>Anotei. Vou seguir mesmo assim e te mandar o material — se algo não fizer sentido pelo caminho, me avisa.</p>
-</blockquote>
-<h3 id="quando-a-pessoa-diz-que-ja-tem-o-livro-ja-comprou-o-curso">Quando a pessoa diz que já tem o livro / já comprou o curso</h3>
-<blockquote>
-<p>Ótimo. Então pula esta parte. Vou só te marcar como "já dentro" e qualquer comunicação futura vai pelo canal de alunos. Obrigado pela confiança.</p>
-</blockquote>
-<h3 id="quando-a-pessoa-pergunta-precocondicoes-no-meio-da-regua-antes-do-estagio-5">Quando a pessoa pergunta preço/condições no meio da régua (antes do Estágio 5)</h3>
-<blockquote>
-<p>Esse detalhe a equipe envia direitinho. Mas antes prefiro te mandar o trecho inicial e o áudio — pra você ter material concreto pra decidir, e não comprar no escuro. Pode ser?</p>
-</blockquote>
-<h3 id="confirmacao-apos-1-compra-direta-no-curso">Confirmação após "1 — Compra direta no curso"</h3>
-<blockquote>
-<p>Aqui está: {{link_curso}}. Se travar em qualquer etapa do checkout, me avisa que resolvo. E me manda um sinal quando concluir — quero saber que você entrou.</p>
-</blockquote>
-<h3 id="confirmacao-apos-2-inscricao-na-imersao">Confirmação após "2 — Inscrição na imersão"</h3>
-<blockquote>
-<p>Aqui está o link de inscrição: {{link_imersao}}. A imersão "O Sentido da Vida" é no dia 23 de maio, das 8h às 12h, comigo. Quando concluir a inscrição, me avisa por aqui — assim eu sei que você tá dentro.</p>
+<p>A imersão é transmitida ao vivo no YouTube. Para ter o link de acesso, é só se inscrever em {{link_imersao}}.</p>
 </blockquote>
     <footer>
-      Roteiros do funil de WhatsApp — versão 15/05/2026. Para alterações, atualizar o arquivo MD de origem e regerar este HTML.
+      Roteiros do funil de WhatsApp — versão 19/05/2026. Para alterações, atualizar o arquivo MD de origem e regerar este HTML.
     </footer>
   </main>
 </div>
